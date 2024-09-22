@@ -1,25 +1,38 @@
-#include <iostream>
-using namespace std;
+#include<iostream>
+#include <vector>
+
+void removeDuplicates(std::vector<int>& arr) {
+    if (arr.empty()) return;
+
+    int n = arr.size();
+    int uniqueIndex = 0;
+
+    for (int i = 1; i < n; i++) {
+        if (arr[i] != arr[uniqueIndex]) {
+            uniqueIndex++;
+            arr[uniqueIndex] = arr[i];
+        }
+    }
+
+    arr.resize(uniqueIndex + 1);
+}
 
 int main() {
-    int num, reversedNum = 0, remainder, originalNum;
+    std::vector<int>  sortedArray ={1 2 2 3 4 4 5};
 
-    cout << "Enter an integer: ";
-    cin >> num;
-
-    originalNum = num;
-
-    while (num != 0) {
-        remainder = num % 10;
-        reversedNum = reversedNum * 10 + remainder; 
-        num /= 10; 
+    std::cout << "Original sorted array: ";
+    for (int num : sortedArray) {
+        std::cout << num << " ";
     }
+    std::cout << std::endl;
 
-    if (originalNum == reversedNum) {
-        cout << originalNum << " is a palindrome." << endl;
-    } else {
-        cout << originalNum << " is not a palindrome." << endl;
+    removeDuplicates(sortedArray);
+
+    std::cout << "Array after removing duplicates: ";
+    for (int num : sortedArray) {
+        std::cout << num << " ";
     }
+    std::cout << std::endl;
 
     return 0;
 }
