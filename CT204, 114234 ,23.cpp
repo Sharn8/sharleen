@@ -34,14 +34,13 @@ void displayArray(int arr[], int size) {
 }
 
 int main() {
-    const int MAX_SIZE = 100; // Maximum size of the array
-    int array[MAX_SIZE]; // Declare an array of integers
-    int size = 0; // Current number of elements in the array
+    const int MAX_SIZE = 100;
+    int array[MAX_SIZE];
+    int size = 0;
 
-    // Inserting some elements for demonstration
     insertAtBeginning(array, size, 10);
     insertAtEnd(array, size, 20);
-    insertAtPosition(array, size, 15, 1); // Insert 15 at position 1
+    insertAtPosition(array, size, 15, 1); 
 
     // Displaying the array
     displayArray(array, size);
